@@ -1,8 +1,4 @@
----
-sidebar_position: 6
----
-
-# Testing Best Practices
+# Testing
 
 ## Overview
 
@@ -14,20 +10,20 @@ Testing is essential to ensure the quality, stability, and maintainability of ou
 
 1. **Unit Tests**:
 
-   - Focus on testing individual components, functions, or methods in isolation.
-   - Ensure that each piece of code behaves as expected for a variety of inputs.
-   - Aim for high coverage of critical functions to catch bugs early.
+    - Focus on testing individual components, functions, or methods in isolation.
+    - Ensure that each piece of code behaves as expected for a variety of inputs.
+    - Aim for high coverage of critical functions to catch bugs early.
 
 2. **Integration Tests**:
 
-   - Verify that multiple components or services work together as expected.
-   - Test interactions between modules or external services, such as databases, APIs, or other third-party systems.
-   - Focus on ensuring that data flow and communication between components is correct.
+    - Verify that multiple components or services work together as expected.
+    - Test interactions between modules or external services, such as databases, APIs, or other third-party systems.
+    - Focus on ensuring that data flow and communication between components is correct.
 
 3. **End-to-End (E2E) Tests**:
-   - Simulate real-world user interactions with the system.
-   - Test the entire system from the user interface to the backend, including all key workflows.
-   - Use E2E tests to validate the user experience and critical business processes.
+    - Simulate real-world user interactions with the system.
+    - Test the entire system from the user interface to the backend, including all key workflows.
+    - Use E2E tests to validate the user experience and critical business processes.
 
 ---
 
@@ -36,9 +32,9 @@ Testing is essential to ensure the quality, stability, and maintainability of ou
 1. **Test-Driven Development (TDD)**
 
 - Where appropriate, adopt **Test-Driven Development (TDD)**:
-  1. Write a failing test that defines the behavior you want.
-  2. Write the minimal amount of code necessary to pass the test.
-  3. Refactor the code while ensuring all tests still pass.
+    1. Write a failing test that defines the behavior you want.
+    2. Write the minimal amount of code necessary to pass the test.
+    3. Refactor the code while ensuring all tests still pass.
 - TDD helps drive code design, ensures tests are written for new features, and helps catch issues early in the development process.
 
 2. **Test Coverage**
@@ -54,9 +50,9 @@ Testing is essential to ensure the quality, stability, and maintainability of ou
 - Tests should be easy to read and understand, with clear, descriptive names.
 - Follow the Arrange-Act-Assert (AAA) pattern:
 
-  - **Arrange**: Set up the test data and objects.
-  - **Act**: Perform the action being tested.
-  - **Assert**: Verify that the result matches the expected outcome.
+    - **Arrange**: Set up the test data and objects.
+    - **Act**: Perform the action being tested.
+    - **Assert**: Verify that the result matches the expected outcome.
 
   Example:
 
@@ -111,13 +107,13 @@ Testing is essential to ensure the quality, stability, and maintainability of ou
 
 1. **Organize tests by functionality**:
 
-   - Place tests in a folder structure that mirrors the application's modules or components.
-   - Group tests by type (unit, integration, end-to-end) or by the feature or component they cover.
+    - Place tests in a folder structure that mirrors the application's modules or components.
+    - Group tests by type (unit, integration, end-to-end) or by the feature or component they cover.
 
 2. **Test Naming Conventions**:
 
-   - Test files should be named descriptively, using a format that clearly indicates what is being tested.
-   - Inside test files, use descriptive names for test cases to communicate the behavior or scenario being tested.
+    - Test files should be named descriptively, using a format that clearly indicates what is being tested.
+    - Inside test files, use descriptive names for test cases to communicate the behavior or scenario being tested.
 
    Example:
 
@@ -131,8 +127,8 @@ Testing is essential to ensure the quality, stability, and maintainability of ou
 
 - All tests are run automatically in the CI pipeline for every pull request.
 - Ensure that no PR is merged unless:
-  - All tests pass successfully.
-  - Adequate test coverage is maintained.
+    - All tests pass successfully.
+    - Adequate test coverage is maintained.
 - Run tests in parallel where possible to optimise for speed, especially for end-to-end tests.
 
 ---
@@ -141,12 +137,12 @@ Testing is essential to ensure the quality, stability, and maintainability of ou
 
 - **Local Development**:
 
-  - Run unit and integration tests locally before pushing your code.
-  - Ensure that you are not introducing breaking changes by running all applicable tests before submitting a pull request.
+    - Run unit and integration tests locally before pushing your code.
+    - Ensure that you are not introducing breaking changes by running all applicable tests before submitting a pull request.
 
 - **Development / Test Environments**:
 
-  - Use the development & test environments to test end-to-end flows and perform integration tests that require interaction with external services or databases.
+    - Use the development & test environments to test end-to-end flows and perform integration tests that require interaction with external services or databases.
 
 - **Production Environment**:
-  - Automated tests should run in the CI/CD pipeline as part of the deployment process, but production deployments should be thoroughly tested in test before being promoted.
+    - Automated tests should run in the CI/CD pipeline as part of the deployment process, but production deployments should be thoroughly tested in test before being promoted.

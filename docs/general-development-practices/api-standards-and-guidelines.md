@@ -1,7 +1,3 @@
----
-sidebar_position: 4
----
-
 # API Standards and Guidelines
 
 ## Overview

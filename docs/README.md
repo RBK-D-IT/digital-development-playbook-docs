@@ -1,9 +1,4 @@
----
-sidebar_position: 1
-slug: /
----
-
-# Introduction
+# Digital Development Playbook
 
 Welcome to the Royal Borough of Kingston's **Digital Development Playbook**. This playbook serves as a guide for our team, outlining best practices, standards, and processes for developing and deploying applications, APIs, and other digital products. The playbook is designed to ensure consistency, quality, and efficiency in our development workflows while also providing key documentation as we adopt cloud technologies like AWS and modern DevOps practices.
 

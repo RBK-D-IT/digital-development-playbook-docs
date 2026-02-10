@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Infrastructure as Code
 
 ## Overview
@@ -39,17 +35,17 @@ This document outlines how we use **AWS CDK** and **AWS CloudFormation** to defi
 We use AWS CDK as our primary tool for defining and managing infrastructure in AWS. CDK allows us to define infrastructure using familiar programming languages (e.g., C#), which then generates AWS CloudFormation templates to provision resources.
 
 - **Advantages of AWS CDK**:
-  - **Declarative Infrastructure**: You define infrastructure resources using code, and CDK automatically generates the CloudFormation templates to deploy those resources.
-  - **Reusable Components**: CDK allows us to define reusable infrastructure components, making it easy to scale infrastructure across different environments.
-  - **Multi-Environment Support**: Easily manage infrastructure for development, test, and production environments by passing environment-specific configurations.
+    - **Declarative Infrastructure**: You define infrastructure resources using code, and CDK automatically generates the CloudFormation templates to deploy those resources.
+    - **Reusable Components**: CDK allows us to define reusable infrastructure components, making it easy to scale infrastructure across different environments.
+    - **Multi-Environment Support**: Easily manage infrastructure for development, test, and production environments by passing environment-specific configurations.
 
 2. **AWS CloudFormation**
 
 While AWS CDK is used to write infrastructure code, AWS CloudFormation is the underlying service that provisions and manages AWS resources. CDK generates CloudFormation templates, which are then used to deploy infrastructure resources in AWS.
 
 - **CloudFormation Capabilities**:
-  - **Stack Management**: CloudFormation organises infrastructure as stacks, allowing us to easily manage, update, or delete resources in a single operation.
-  - **Rollback Capabilities**: If a deployment fails, CloudFormation automatically rolls back the infrastructure to its previous state, ensuring stability.
+    - **Stack Management**: CloudFormation organises infrastructure as stacks, allowing us to easily manage, update, or delete resources in a single operation.
+    - **Rollback Capabilities**: If a deployment fails, CloudFormation automatically rolls back the infrastructure to its previous state, ensuring stability.
 
 ---
 
@@ -63,9 +59,9 @@ While AWS CDK is used to write infrastructure code, AWS CloudFormation is the un
 2. **Automated Infrastructure Deployment**
 
 - When infrastructure changes are merged into the `main` branch, the CI/CD pipeline (using **GitHub Actions**) is triggered to deploy the infrastructure changes automatically.
-  - **Development Environment**: Infrastructure changes are first deployed to the **development environment** for internal testing.
-  - **Test Environment**: Once validated, infrastructure changes are promoted to the **test environment** for UAT.
-  - **Production Environment**: After UAT, infrastructure changes are deployed to the **production environment**.
+    - **Development Environment**: Infrastructure changes are first deployed to the **development environment** for internal testing.
+    - **Test Environment**: Once validated, infrastructure changes are promoted to the **test environment** for UAT.
+    - **Production Environment**: After UAT, infrastructure changes are deployed to the **production environment**.
 
 3. **Deployment Process**
 
@@ -73,22 +69,22 @@ For every environment (development, test, production), the following steps are f
 
 1. **Define Infrastructure in AWS CDK**:
 
-   - Developers write code using AWS CDK to define infrastructure resources (e.g., API Gateways, Lambda Functions).
-   - The CDK code defines how resources should be provisioned, configured, and scaled.
+    - Developers write code using AWS CDK to define infrastructure resources (e.g., API Gateways, Lambda Functions).
+    - The CDK code defines how resources should be provisioned, configured, and scaled.
 
 2. **Generate CloudFormation Templates**:
 
-   - AWS CDK automatically generates CloudFormation templates from the CDK code.
-   - These templates contain the declarative definition of the infrastructure resources.
+    - AWS CDK automatically generates CloudFormation templates from the CDK code.
+    - These templates contain the declarative definition of the infrastructure resources.
 
 3. **Deploy Resources Using CloudFormation**:
 
-   - The CloudFormation templates are deployed via GitHub Actions.
-   - CloudFormation provisions the AWS resources in the specified environment (development, test, or production).
-   - **Rollback Mechanism**: If a resource fails to deploy, CloudFormation automatically rolls back to the previous stable state.
+    - The CloudFormation templates are deployed via GitHub Actions.
+    - CloudFormation provisions the AWS resources in the specified environment (development, test, or production).
+    - **Rollback Mechanism**: If a resource fails to deploy, CloudFormation automatically rolls back to the previous stable state.
 
 4. **Test and Validate**:
-   - After the infrastructure is deployed, smoke tests and validation steps are performed to ensure the resources are functioning as expected.
+    - After the infrastructure is deployed, smoke tests and validation steps are performed to ensure the resources are functioning as expected.
 
 ---
 
@@ -98,18 +94,18 @@ Each environment (development, test, production) may have different infrastructu
 
 - **Development Environment**:
 
-  - Lower-cost resources (e.g., smaller EC2 instances or RDS databases) may be provisioned to reduce costs during development.
-  - Frequent deployments and updates as part of the development process.
+    - Lower-cost resources (e.g., smaller EC2 instances or RDS databases) may be provisioned to reduce costs during development.
+    - Frequent deployments and updates as part of the development process.
 
 - **Test Environment**:
 
-  - Resources are configured to closely mirror production, ensuring that tests are conducted in an environment similar to production.
-  - Automatic rollbacks are enabled in case of failed deployments.
+    - Resources are configured to closely mirror production, ensuring that tests are conducted in an environment similar to production.
+    - Automatic rollbacks are enabled in case of failed deployments.
 
 - **Production Environment**:
-  - Full-scale infrastructure is provisioned to handle production traffic and workloads.
-  - Higher levels of redundancy and fault tolerance are built into the infrastructure.
-  - Monitoring and alerts are configured for critical production services.
+    - Full-scale infrastructure is provisioned to handle production traffic and workloads.
+    - Higher levels of redundancy and fault tolerance are built into the infrastructure.
+    - Monitoring and alerts are configured for critical production services.
 
 ---
 

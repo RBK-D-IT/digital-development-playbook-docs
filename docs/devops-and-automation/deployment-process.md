@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Deployment Process
 
 ## Overview
@@ -11,11 +7,11 @@ This document outlines the process for deploying code across **Development, Test
 ### Deployment Workflow
 
 - **Development (manual trigger)**
-  - Can be deployed on-demand from local machines or triggered via GitHub Actions.
+    - Can be deployed on-demand from local machines or triggered via GitHub Actions.
 - **Test (`develop` branch merges)**
-  - Automatically deployed to **Test** upon merge to `develop`.
+    - Automatically deployed to **Test** upon merge to `develop`.
 - **Production (`main` branch merges)**
-  - Automatically deployed to **Production** upon merge to `main`.
+    - Automatically deployed to **Production** upon merge to `main`.
 
 ---
 
@@ -40,44 +36,44 @@ This automation ensures zero manual intervention for deployments to Test and Pro
 ### 1. Development Environment
 
 - **Trigger**:
-  - On-demand deployment via local machine.
-  - On-demand deployment via GitHub Actions (if a developer raises a PR to `develop`).
+    - On-demand deployment via local machine.
+    - On-demand deployment via GitHub Actions (if a developer raises a PR to `develop`).
 - **Steps**:
-  - The pipeline builds, tests, and validates the code.
-  - AWS CDK provisions or updates infrastructure.
-  - Smoke tests verify core functionality.
+    - The pipeline builds, tests, and validates the code.
+    - AWS CDK provisions or updates infrastructure.
+    - Smoke tests verify core functionality.
 - **Who is involved?**
-  - Developers trigger and monitor deployments.
+    - Developers trigger and monitor deployments.
 
 ---
 
 ### 2. Test Environment
 
 - **Trigger**:
-  - A merge into `develop` automatically triggers deployment.
+    - A merge into `develop` automatically triggers deployment.
 - **Steps**:
-  - GitHub Actions builds, tests, and deploys the application.
-  - AWS CDK provisions the test environment.
-  - Integration tests and smoke tests run.
+    - GitHub Actions builds, tests, and deploys the application.
+    - AWS CDK provisions the test environment.
+    - Integration tests and smoke tests run.
 - **Who is involved?**
-  - Developers ensure smooth deployment.
-  - Testers validate functionality in the Test environment.
-  - Stakeholders may review key features.
+    - Developers ensure smooth deployment.
+    - Testers validate functionality in the Test environment.
+    - Stakeholders may review key features.
 
 ---
 
 ### 3. Production Environment
 
 - **Trigger**:
-  - A merge into `main` automatically triggers deployment.
+    - A merge into `main` automatically triggers deployment.
 - **Steps**:
-  - GitHub Actions builds, tests, and deploys the application.
-  - AWS CDK provisions production infrastructure.
-  - Smoke tests confirm a successful deployment.
-  - Monitoring tools like AWS CloudWatch track performance.
+    - GitHub Actions builds, tests, and deploys the application.
+    - AWS CDK provisions production infrastructure.
+    - Smoke tests confirm a successful deployment.
+    - Monitoring tools like AWS CloudWatch track performance.
 - **Who is involved?**
-  - Developers oversee deployments and monitor performance.
-  - Stakeholders validate post-deployment success.
+    - Developers oversee deployments and monitor performance.
+    - Stakeholders validate post-deployment success.
 
 ---
 
@@ -90,8 +86,8 @@ This automation ensures zero manual intervention for deployments to Test and Pro
 ### Application Rollback
 
 - If an issue is detected in production:
-  - The pipeline can redeploy the last stable version.
-  - Developers can manually rollback to a previous Git commit.
+    - The pipeline can redeploy the last stable version.
+    - Developers can manually rollback to a previous Git commit.
 
 ### Manual Intervention
 

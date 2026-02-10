@@ -1,7 +1,3 @@
----
-sidebar_position: 4
----
-
 # Monitoring and Alerts
 
 ## Overview
@@ -20,14 +16,14 @@ AWS CloudWatch is the primary tool we use to monitor our applications. It allows
 
 - **What we log**:
 
-  - **Errors**: Capture any exceptions, stack traces, or warnings that may indicate bugs or issues.
-  - **Key Events**: Log important events such as service start-ups, shutdowns, and critical application workflows.
-  - **Custom Log Messages**: Developers can insert custom log messages into the application to track specific events or troubleshoot issues.
+    - **Errors**: Capture any exceptions, stack traces, or warnings that may indicate bugs or issues.
+    - **Key Events**: Log important events such as service start-ups, shutdowns, and critical application workflows.
+    - **Custom Log Messages**: Developers can insert custom log messages into the application to track specific events or troubleshoot issues.
 
 - **How we use logs**:
-  - **Error Detection**: Search logs for error patterns or exceptions that may indicate problems with the application.
-  - **Performance Issues**: Identify slow-performing parts of the application by analysing log timestamps.
-  - **User Activity Tracking**: Optionally, track important user activities (e.g., logins, API calls) to monitor how the application is being used.
+    - **Error Detection**: Search logs for error patterns or exceptions that may indicate problems with the application.
+    - **Performance Issues**: Identify slow-performing parts of the application by analysing log timestamps.
+    - **User Activity Tracking**: Optionally, track important user activities (e.g., logins, API calls) to monitor how the application is being used.
 
 2. **Log Retention and Management**
 
@@ -47,9 +43,9 @@ We set up basic alerts in AWS CloudWatch to notify the team when certain critica
 CloudWatch Alarms are used to automatically trigger notifications based on predefined conditions. These alarms monitor key metrics and log patterns to detect potential issues with the application.
 
 - **What we monitor**:
-  - **Error Patterns**: Trigger an alarm when specific error messages or patterns appear in the logs (e.g., repeated exceptions, failed API calls).
-  - **Log Volume**: Monitor for unexpected spikes or drops in log volume, which could indicate application instability (e.g., a crash or unusually high usage).
-  - **Custom Metrics**: If needed, we can create custom metrics based on log data to track things like API request errors or failed login attempts.
+    - **Error Patterns**: Trigger an alarm when specific error messages or patterns appear in the logs (e.g., repeated exceptions, failed API calls).
+    - **Log Volume**: Monitor for unexpected spikes or drops in log volume, which could indicate application instability (e.g., a crash or unusually high usage).
+    - **Custom Metrics**: If needed, we can create custom metrics based on log data to track things like API request errors or failed login attempts.
 
 2. **Setting Thresholds for Alarms**
 

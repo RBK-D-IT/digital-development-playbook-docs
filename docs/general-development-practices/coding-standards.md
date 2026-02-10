@@ -10,25 +10,25 @@ To maintain consistency and readability across our codebase, we follow these cod
 
 1. **Consistency**:
 
-   - Write consistent code across the team. Follow established patterns and avoid introducing conflicting styles.
+    - Write consistent code across the team. Follow established patterns and avoid introducing conflicting styles.
 
 2. **Indentation and Formatting**:
 
-   - Use 2 spaces for indentation (unless the project or language specifies otherwise).
-   - Ensure proper use of line breaks and spacing between code blocks for readability.
+    - Use 2 spaces for indentation (unless the project or language specifies otherwise).
+    - Ensure proper use of line breaks and spacing between code blocks for readability.
 
 3. **Naming Conventions**:
 
-   - Use descriptive variable and function names that clearly describe their purpose.
-   - For example, `getUserData()` is more descriptive than `getData()`.
+    - Use descriptive variable and function names that clearly describe their purpose.
+    - For example, `getUserData()` is more descriptive than `getData()`.
 
 4. **Comments**:
-   - Comment your code where necessary to explain the "why" behind complex logic.
-   - Avoid obvious comments, such as:
-     ```javascript
-     // Add 1 to counter
-     counter += 1;
-     ```
+    - Comment your code where necessary to explain the "why" behind complex logic.
+    - Avoid obvious comments, such as:
+      ```javascript
+      // Add 1 to counter
+      counter += 1;
+      ```
 
 ---
 
@@ -71,10 +71,10 @@ Each commit message should include a type, an optional scope, and a short descri
 **Commit Message Guidelines**
 
 1. **Commit Early and Often**:
-   - Each commit should represent a small, logical change that can be independently reviewed.
+    - Each commit should represent a small, logical change that can be independently reviewed.
 2. **Atomic Commits**:
-   - Keep commits focused. Avoid mixing different types of changes (e.g., don’t include both `feat` and `fix` in the same commit).
+    - Keep commits focused. Avoid mixing different types of changes (e.g., don’t include both `feat` and `fix` in the same commit).
 3. **Use Descriptive Commit Messages**:
-   - Clearly describe what the change is and why it was made.
+    - Clearly describe what the change is and why it was made.
 4. **Reference Issues and PRs**:
-   - If applicable, reference the issue ticket reference in the commit message (e.g., `fix(auth): correct authentication (CD-456)`).
+    - If applicable, reference the issue ticket reference in the commit message (e.g., `fix(auth): correct authentication (CD-456)`).

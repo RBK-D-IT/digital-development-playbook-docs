@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # CI/CD Pipeline and Automation
 
 ## Overview
@@ -26,9 +22,9 @@ When a feature or bug fix is pushed to a branch in GitHub, the CI pipeline is tr
 
 - **Build**: The application is compiled, packaged, or containerised as needed.
 - **Automated Testing**:
-  - **Unit Tests**: Validate individual components or functions.
-  - **Integration Tests**: Ensure that services interact correctly.
-  - **End-to-End (E2E) Tests**: Simulate user workflows.
+    - **Unit Tests**: Validate individual components or functions.
+    - **Integration Tests**: Ensure that services interact correctly.
+    - **End-to-End (E2E) Tests**: Simulate user workflows.
 - **Code Linting**: Check for code quality and adherence to standards.
 
 If any step fails, the pipeline notifies the developer to make changes and re-run the pipeline.
@@ -40,22 +36,22 @@ If any step fails, the pipeline notifies the developer to make changes and re-ru
 #### **Test Environment**
 
 - **Trigger**:
-  - A PR is merged into `develop`.
-  - A developer triggers a manual deployment.
+    - A PR is merged into `develop`.
+    - A developer triggers a manual deployment.
 - **Action**:
-  - The pipeline automatically deploys to the **test environment**.
-  - AWS CDK assumes an AWS role to deploy in the test account.
-  - Integration and smoke tests run to validate stability.
+    - The pipeline automatically deploys to the **test environment**.
+    - AWS CDK assumes an AWS role to deploy in the test account.
+    - Integration and smoke tests run to validate stability.
 
 #### **Production Environment**
 
 - **Trigger**:
-  - A PR is merged into `main`.
-  - A developer triggers a manual deployment.
+    - A PR is merged into `main`.
+    - A developer triggers a manual deployment.
 - **Action**:
-  - The pipeline automatically deploys to the **production environment**.
-  - AWS CDK provisions or updates production infrastructure.
-  - Post-deployment monitoring ensures stability.
+    - The pipeline automatically deploys to the **production environment**.
+    - AWS CDK provisions or updates production infrastructure.
+    - Post-deployment monitoring ensures stability.
 
 ---
 

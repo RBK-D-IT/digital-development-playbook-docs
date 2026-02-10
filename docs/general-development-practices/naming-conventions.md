@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Naming Conventions
 
 ## Overview
@@ -38,37 +34,37 @@ digital-[project-type]-[project-name]-[optional-context]
 
 1. **API Projects:**
 
-   - `digital-api-spatial-search`
-   - `digital-api-middleman-waste`
+    - `digital-api-spatial-search`
+    - `digital-api-middleman-waste`
 
 2. **Application Projects:**
 
-   - `digital-app-free-school-meals`
-   - `digital-app-corporate-warnings`
+    - `digital-app-free-school-meals`
+    - `digital-app-corporate-warnings`
 
 3. **Web Projects:**
 
-   - `digital-web-customer-platform-maps`
-   - `digital-web-address-search`
+    - `digital-web-customer-platform-maps`
+    - `digital-web-address-search`
 
 4. **CDK Projects:**
 
-   - `digital-cdk-api-deployment`
-   - `digital-cdk-blazor-deployment`
+    - `digital-cdk-api-deployment`
+    - `digital-cdk-blazor-deployment`
 
 5. **Library Projects:**
 
-   - `digital-lib-authentication`
-   - `digital-lib-logging`
+    - `digital-lib-authentication`
+    - `digital-lib-logging`
 
 6. **Tool Projects:**
 
-   - `digital-tool-dtf-importer`
-   - `digital-tool-code-generator`
+    - `digital-tool-dtf-importer`
+    - `digital-tool-code-generator`
 
 7. **Template/Example Projects:**
-   - `digital-template-api-enhanced`
-   - `digital-template-app-crud-basic`
+    - `digital-template-api-enhanced`
+    - `digital-template-app-crud-basic`
 
 ---
 

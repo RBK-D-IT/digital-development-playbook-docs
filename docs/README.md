@@ -6,7 +6,7 @@ Welcome to the Royal Borough of Kingston's **Digital Development Playbook**. Thi
 
 The Digital Development Playbook provides guidance on:
 
-- **General Development Practices**: Coding standards, branching strategies, testing practices, and code review.
-- **DevOps and Automation**: CI/CD pipelines, infrastructure management, and automated deployments.
+- **Development Practices**: Coding standards, branching strategies, testing practices, and code review.
+- **Deployment & Operations**: CI/CD pipelines, infrastructure management, and automated deployments.
 
 This playbook is intended to evolve over time as we refine our processes and adopt new technologies. Contributions from the team are encouraged to keep this playbook up to date and relevant.

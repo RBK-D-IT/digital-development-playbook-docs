@@ -49,7 +49,7 @@ The `service` element represents the primary council service supported by the re
 
 Service names should:
 
-- Align to the **Local Government Service List (LGSL)**
+- Align to the [**Local Government Service List (LGSL)**](https://standards.esd.org.uk/?uri=list%2FenglishAndWelshServices)
 - Be clearly recognisable
 - Be stable over time
 - Use lowercase kebab-case

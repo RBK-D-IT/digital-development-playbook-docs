@@ -6,69 +6,138 @@ This document outlines the **naming conventions** that our team follows across v
 
 ---
 
-## GitHub Repositories
+## 1. GitHub Repository Naming Conventions
 
-All GitHub repositories must follow a consistent naming convention to improve organisation and clarity. The following rules apply to all GitHub repositories.
+All GitHub repositories must follow a **service-centric naming convention**.
 
-**Format**:
+Repository names should clearly describe:
 
-```
-digital-[project-type]-[project-name]-[optional-context]
-```
+- The **council service or capability** they support
+- The **technical type** of repository
 
-- `[project-type]`: The type of project (e.g., `api`, `app`, `web`, `cdk`, `lib`, `tool`, `template`).
-- `[project-name]`: A descriptive name for the project.
-- `[optional-context]`: (Optional) Further context if required to clarify the purpose of the repository.
+This ensures:
 
-**Project Types**
-
-1. **API Projects:** `digital-api-[project-name]`
-2. **Application Projects:** `digital-app-[project-name]`
-3. **Web Projects:** `digital-web-[project-name]`
-4. **CDK Projects:** `digital-cdk-[project-name]`
-5. **Library Projects:** `digital-lib-[project-name]`
-6. **Tool Projects:** `digital-tool-[project-name]`
-7. **Template/Example Projects:** `digital-template-[project-type]-[context]`
-
-**Examples of Each Project Type**
-
-1. **API Projects:**
-
-    - `digital-api-spatial-search`
-    - `digital-api-middleman-waste`
-
-2. **Application Projects:**
-
-    - `digital-app-free-school-meals`
-    - `digital-app-corporate-warnings`
-
-3. **Web Projects:**
-
-    - `digital-web-customer-platform-maps`
-    - `digital-web-address-search`
-
-4. **CDK Projects:**
-
-    - `digital-cdk-api-deployment`
-    - `digital-cdk-blazor-deployment`
-
-5. **Library Projects:**
-
-    - `digital-lib-authentication`
-    - `digital-lib-logging`
-
-6. **Tool Projects:**
-
-    - `digital-tool-dtf-importer`
-    - `digital-tool-code-generator`
-
-7. **Template/Example Projects:**
-    - `digital-template-api-enhanced`
-    - `digital-template-app-crud-basic`
+- Clear alignment to council services
+- Consistency across teams
+- Long-term stability (independent of technology or team structure)
+- Easier discoverability across GitHub organisations
 
 ---
 
-## Git Branches and Commits
+### Naming Structure
+
+The default structure is:
+
+`[service]-[type]`
+
+In some cases, where clarity is required (for example in a shared GitHub organisation), an optional scope prefix may be used:
+
+`[scope]-[service]-[type]`
+
+#### Accepted Scope Values
+
+- `rbk` – Royal Borough of Kingston
+- `lbs` – London Borough of Sutton
+
+Scope is used to distinguish implementations of the same service — **not** to reflect team ownership.
+
+---
+
+### Service
+
+The `service` element represents the primary council service supported by the repository.
+
+Service names should:
+
+- Align to the **Local Government Service List (LGSL)**
+- Be clearly recognisable
+- Be stable over time
+- Use lowercase kebab-case
+- Avoid including the LGSL ID in the repository name
+
+> ⚠️ The LGSL service ID must be included in the GitHub repository description, not in the repository name.
+
+#### Examples
+
+- `abandoned-vehicles-api`
+- `hmo-licence-api`
+- `electoral-register-api`
+- `lbs-electoral-register-api` (borough-specific implementation)
+
+---
+
+### Type
+
+The `type` element describes the primary technical nature of the repository.
+
+Use the following preferred set of types wherever possible:
+
+| Type | When to Use |
+|------|------------|
+| `api` | Exposes an integration contract (REST, GraphQL, event-based). |
+| `service` | Backend business logic not primarily consumed as an API. |
+| `etl` | Structured data ingestion, transformation, or export. |
+| `frontend` | User interface only. |
+| `portal` | Staff or resident-facing application that supports or completes a council service journey. |
+| `worker` | Background or asynchronous processing. |
+| `template` | Starter or boilerplate repository. |
+| `infrastructure` | Infrastructure provisioning or shared platform capability. |
+| `library` | Reusable code consumed by multiple repositories. |
+| `docs` | Documentation-only repository. |
+
+New types should be added sparingly and used consistently.
+
+---
+
+### Multi-Service or Capability-Based Repositories
+
+Where a repository:
+
+- Supports multiple LGSL services, or
+- Represents a shared technical capability rather than a single service
+
+Replace `service` with a **capability or audience-focused name**, while retaining the same structure:
+
+`[capability]-[type]`
+
+#### Examples
+
+- `residential-collections-api` (aggregates multiple services)
+- `spatial-services-api` (shared technical capability)
+- `digital-account-bootstrap-infrastructure` (platform foundation)
+
+Where multiple LGSL services are supported, all relevant service IDs must be included in the repository description.
+
+This approach should only be used where a single LGSL service cannot reasonably be identified.
+
+---
+
+### Formatting Rules
+
+- Lowercase letters only
+- Use hyphens (`-`) to separate words
+- No spaces or underscores
+- Do not include:
+    - Team names
+    - Personal identifiers
+    - Technology names (unless multiple implementations genuinely exist)
+    - Temporary project labels
+
+---
+
+### Ownership
+
+Repository ownership must be defined using:
+
+- `CODEOWNERS`
+- GitHub teams and permissions
+- README documentation where required
+
+Ownership must not be included in the repository name.
+
+---
+
+## 2. Git Branch and Commit Naming Conventions
 
 Branch names should clearly indicate the type of work being done. They are structured to quickly convey the purpose of the branch and help organise tasks. While similar to conventional commit types, branch naming is broader and identifies a set of changes rather than individual updates. If applicable, the issue ticket reference should be prefixed to the branch name to ensure easy tracking between the code and the associated task or issue.
 
@@ -85,11 +154,11 @@ By using these four prefixes, we ensure that branches are easy to understand and
 
 - For consistency, all commit messages should follow the Conventional Commits format.
 - This structure helps to automate versioning, changelogs, and makes it easier to understand the purpose of each change.
-- For more details on how to write proper commit messages, see the [Coding Standards](general-development-practices/coding-standards.md#commit-message-standards-conventional-commits) page.
+- For more details on how to write proper commit messages, see the [Coding Standards](coding-standards.md#commit-message-standards-conventional-commits) page.
 
 ---
 
-## Pull Requests
+## 3. Pull Request Naming Conventions
 
 To keep our workflow consistent and make it easier to link pull requests to work items in our issue tracking system (e.g., JIRA), please follow this naming convention for all pull requests when creating new features / bug fixes.
 
@@ -132,7 +201,7 @@ When promoting to the main branch, prefix the PR with `Release:` to indicate the
 
 ---
 
-## AWS Resources
+## 4. AWS Resource Naming Conventions
 
 Consistent naming in AWS resources helps to quickly identify the purpose and environment of resources. The following conventions apply to common AWS services such as IAM roles, Lambda functions, and S3 buckets.
 
@@ -263,7 +332,7 @@ The stage name is based on the environment (e.g., `dev`, `test`, `prod`).
 
 ---
 
-## APIs
+## 5. API Design Naming Conventions
 
 In this section, we focus on how to design and structure API endpoints, independent of the AWS infrastructure. This covers how APIs should be named and accessed from a development perspective.
 

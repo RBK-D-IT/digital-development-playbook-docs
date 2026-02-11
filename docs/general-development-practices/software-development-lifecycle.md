@@ -31,7 +31,7 @@ Once the project is defined, development begins in a local environment. This is 
 - **Key Activities**:
     - Configure the project in a local environment, using templates and repositories (if required).
     - Set up a new repository or initialise the project based on an API template (if required).
-    - Follow the [branching strategy](../general-development-practices/branching-strategy.md) by creating feature branches for development work.
+    - Follow the [branching strategy](general-development-practices/branching-strategy.md?id=branching-strategy-amp-git-workflow) by creating feature branches for development work.
     - Develop, code, and write unit tests, integration tests, and E2E tests.
     - Deploy to a development environment for initial tests.
 

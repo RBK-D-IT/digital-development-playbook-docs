@@ -1,4 +1,4 @@
-# API Standards and Guidelines
+# API Standards & Guidelines
 
 ## Overview
 
@@ -6,7 +6,7 @@ This document provides the **standards** and **guidelines** that our team follow
 
 ---
 
-## 1. API Structure and URL Design
+## API Structure and URL Design
 
 APIs should be designed to provide clear and intuitive access to resources. URLs should represent the structure of the data and the actions that can be performed.
 
@@ -47,7 +47,7 @@ Use query parameters to filter, sort, or paginate results.
 
 ---
 
-## 2. HTTP Methods and Actions
+## HTTP Methods and Actions
 
 APIs should use standard HTTP methods to indicate the action being performed on the resource.
 
@@ -67,7 +67,7 @@ APIs should use standard HTTP methods to indicate the action being performed on 
 
 ---
 
-## 3. Authentication and Security
+## Authentication and Security
 
 APIs must be secure and protect sensitive data. Use the appropriate authentication and authorisation mechanisms for API access.
 
@@ -90,7 +90,7 @@ Authorization: Bearer [token]
 
 ---
 
-## 4. Error Handling and Status Codes
+## Error Handling and Status Codes
 
 APIs should provide meaningful and consistent error messages, using appropriate HTTP status codes to indicate the result of an operation.
 
@@ -133,7 +133,7 @@ All error responses should follow a consistent structure, providing useful infor
 
 ---
 
-## 5. Rate Limiting and Throttling
+## Rate Limiting and Throttling
 
 To ensure that APIs can handle high traffic loads and protect against abuse, rate limiting should be applied.
 
@@ -151,7 +151,7 @@ X-RateLimit-Limit: 100 X-RateLimit-Remaining: 25 X-RateLimit-Reset: 1588610834
 
 ---
 
-## 6. API Documentation
+## API Documentation
 
 APIs must be properly documented to ensure ease of use for developers and clients.
 
@@ -169,7 +169,7 @@ APIs must be properly documented to ensure ease of use for developers and client
 
 ---
 
-## 7. Logging and Monitoring
+## Logging and Monitoring
 
 Proper logging and monitoring of APIs are crucial for tracking performance, diagnosing issues, and ensuring system health.
 

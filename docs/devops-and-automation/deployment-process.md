@@ -33,7 +33,7 @@ This automation ensures zero manual intervention for deployments to Test and Pro
 
 ## Deployment Stages
 
-### 1. Development Environment
+1. **Development Environment**
 
 - **Trigger**:
     - On-demand deployment via local machine.
@@ -47,7 +47,7 @@ This automation ensures zero manual intervention for deployments to Test and Pro
 
 ---
 
-### 2. Test Environment
+2. **Test Environment**
 
 - **Trigger**:
     - A merge into `develop` automatically triggers deployment.
@@ -62,7 +62,7 @@ This automation ensures zero manual intervention for deployments to Test and Pro
 
 ---
 
-### 3. Production Environment
+3. **Production Environment**
 
 - **Trigger**:
     - A merge into `main` automatically triggers deployment.

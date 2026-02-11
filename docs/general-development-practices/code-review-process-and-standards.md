@@ -1,4 +1,4 @@
-# Code Review Process and Standards
+# Code Review Process & Standards
 
 ## Overview
 
@@ -20,7 +20,7 @@ Code reviews are a critical part of our development workflow, ensuring code qual
 
     - At least one team member must review the PR before it can be merged.
     - The reviewer will:
-        - **Check for Code Quality**: Ensure that the code is clean, well-structured, and follows the team's [coding standards](../general-development-practices/coding-standards.md).
+        - **Check for Code Quality**: Ensure that the code is clean, well-structured, and follows the team's [coding standards](../general-development-practices/coding-standards.md?id=coding-standards).
         - **Test Coverage**: Confirm that the new code has appropriate unit tests, and ensure that existing tests pass.
         - **Functionality**: Verify that the feature works as expected by testing locally when applicable.
         - **Security**: Check for potential security vulnerabilities, especially when dealing with sensitive data (e.g., authentication, authorisation).

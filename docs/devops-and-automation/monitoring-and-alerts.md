@@ -1,4 +1,4 @@
-# Monitoring and Alerts
+# Monitoring & Alerts
 
 ## Overview
 

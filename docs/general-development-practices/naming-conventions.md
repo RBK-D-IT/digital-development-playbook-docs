@@ -6,7 +6,7 @@ This document outlines the **naming conventions** that our team follows across v
 
 ---
 
-## 1. GitHub Repository Naming Conventions
+## GitHub Repositories
 
 All GitHub repositories must follow a **service-centric naming convention**.
 
@@ -137,7 +137,7 @@ Ownership must not be included in the repository name.
 
 ---
 
-## 2. Git Branch and Commit Naming Conventions
+## Git Branches and Commits
 
 Branch names should clearly indicate the type of work being done. They are structured to quickly convey the purpose of the branch and help organise tasks. While similar to conventional commit types, branch naming is broader and identifies a set of changes rather than individual updates. If applicable, the issue ticket reference should be prefixed to the branch name to ensure easy tracking between the code and the associated task or issue.
 
@@ -154,11 +154,11 @@ By using these four prefixes, we ensure that branches are easy to understand and
 
 - For consistency, all commit messages should follow the Conventional Commits format.
 - This structure helps to automate versioning, changelogs, and makes it easier to understand the purpose of each change.
-- For more details on how to write proper commit messages, see the [Coding Standards](coding-standards.md#commit-message-standards-conventional-commits) page.
+- For more details on how to write proper commit messages, see the [Coding Standards](general-development-practices/coding-standards.md#commit-message-standards-conventional-commits) page.
 
 ---
 
-## 3. Pull Request Naming Conventions
+## Pull Requests
 
 To keep our workflow consistent and make it easier to link pull requests to work items in our issue tracking system (e.g., JIRA), please follow this naming convention for all pull requests when creating new features / bug fixes.
 
@@ -201,7 +201,7 @@ When promoting to the main branch, prefix the PR with `Release:` to indicate the
 
 ---
 
-## 4. AWS Resource Naming Conventions
+## AWS Resources
 
 Consistent naming in AWS resources helps to quickly identify the purpose and environment of resources. The following conventions apply to common AWS services such as IAM roles, Lambda functions, and S3 buckets.
 
@@ -332,7 +332,7 @@ The stage name is based on the environment (e.g., `dev`, `test`, `prod`).
 
 ---
 
-## 5. API Design Naming Conventions
+## APIs
 
 In this section, we focus on how to design and structure API endpoints, independent of the AWS infrastructure. This covers how APIs should be named and accessed from a development perspective.
 

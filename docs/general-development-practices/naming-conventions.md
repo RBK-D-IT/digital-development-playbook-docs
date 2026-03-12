@@ -204,8 +204,8 @@ Parameters are stored using a group/path convention, as follows:
 
 **Examples**:
 
-`/platform/domain/name`
-`/waste-notifications/storage/s3-bucket-path`
+- `/platform/domain/name`
+- `/waste-notifications/storage/s3-bucket-path`
 
 ### Secrets Manager
 
@@ -220,7 +220,7 @@ Similar to the parameter store, secrets are stored in a similar convention:
 
 **Examples**:
 
-`/waste-notifications/authorisation/api-key`
+- `/waste-notifications/authorisation/api-key`
 
 ### S3 Buckets
 
@@ -236,9 +236,9 @@ To ensure consistency and clarity across our S3 usage, the following naming conv
 
 **Examples**:
 
-`waste-data-collection-calendars`
-`rbk-parking-data-car-park-photos`
-`s3-file-transfer-logs`
+- `waste-data-collection-calendars`
+- `rbk-parking-data-car-park-photos`
+- `s3-file-transfer-logs`
 
 ### IAM Roles and Policies
 

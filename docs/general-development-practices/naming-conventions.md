@@ -177,28 +177,6 @@ To keep our workflow consistent and make it easier to link pull requests to work
 - `[EF-789] Improve error handling in shared logger`
 - `Add additional logging to payment processing` _(if no ticket number applies / given)_
 
-**Promoting Between Branches**:
-
-When raising Pull Requests to promote changes between long lived branches (e.g., from `develop` to `main`), it should be formatted as below:
-
-**Format**:
-
-```
-Promote [base-branch] to [target-branch]
-```
-
-- `[base-branch]`: The branch where the changes are coming from.
-- `[target-branch]`: The branch where the changes are being merged into.
-
-**Note for Promoting to `main`**
-
-When promoting to the main branch, prefix the PR with `Release:` to indicate they are changes being pushed into the production environment.
-
-**Examples**:
-
-- `Promote develop to test` (Only if the version control process dictates a requirement for multiple long lived branches)
-- `Release: Promote develop to main` (Normal convention)
-
 ---
 
 ## AWS Resources
@@ -221,13 +199,13 @@ Parameters are stored using a group/path convention, as follows:
 
 `/[parameter-group]/[parameter-path]`
 
-- `/[parameter-group]`: The group the parameter belongs to (either application specific, e.g., `digital-api-waste-notifications`, or global e.g., `system`, `application`).
-- `[parameter-path]`: The path of the parameter (e.g., `tagging/common/global`, `domain/digital-public`, `s3/file-path`).
+- `/[parameter-group]`: The group the parameter belongs to (either application specific, e.g., `waste-notifications`, or global e.g., `system`, `platform`).
+- `[parameter-path]`: The path of the parameter (e.g., `tagging/common/global`, `domain/name`).
 
 **Examples**:
 
-`/system/domain/digital-public`
-`/digital-api-waste-notifications/storage/s3-bucket-path`
+`/platform/domain/name`
+`/waste-notifications/storage/s3-bucket-path`
 
 ### Secrets Manager
 
@@ -237,12 +215,12 @@ Similar to the parameter store, secrets are stored in a similar convention:
 
 `/[secret-group]/[secret-path]`
 
-- `/[secret-group]`: The group the secret belongs to (e.g., `digital-api-waste-notifications`).
+- `/[secret-group]`: The group the secret belongs to (e.g., `waste-notifications`).
 - `[secret-path]`: The path of the secret (e.g., `authorisation/api-key`).
 
 **Examples**:
 
-`/digital-api-waste-notifications/authorisation/api-key`
+`/waste-notifications/authorisation/api-key`
 
 ### S3 Buckets
 
@@ -252,7 +230,7 @@ To ensure consistency and clarity across our S3 usage, the following naming conv
 
 `[service|team]-[type]-[purpose]`
 
-- `[service|team]`: The name of the application, API or business/team area (e.g., `api-waste-notifications` or `rbk-housing`).
+- `[service|team]`: The name of the application, API or business/team area (e.g., `waste-notifications` or `rbk-housing`).
 - `[type]`: Describes what type of storage the bucket is used for (`data`, `assets`, `logs`, `exports`, `imports`, `archive`, etc.).
 - `[purpose]`: Optional - What is being stored in the bucket (e.g., `waste-calendars`, `site-photos`).
 
@@ -268,32 +246,31 @@ IAM roles and policies must follow a consistent naming convention to improve cla
 
 **Format**:
 
-`Digital-[purpose][Role|RolePolicy]`
+`[Purpose][Role|RolePolicy]`
 
-- `Digital-`: All IAM roles and policies start with `Digital-`.
-- `[purpose]`: A descriptive term for the function of the role (e.g., `APILambdaDeployment`, `S3BackupManagement`).
+- `[Purpose]`: A descriptive term for the function of the role (e.g., `APILambdaDeployment`, `S3BackupManagement`).
 - `[Role | RolePolicy]`: Ends with either `Role` or `RolePolicy` depending on whether it's a role or a policy.
 
 **Examples**:
 
-- **IAM Role**: `Digital-APILambdaDeploymentRole`
-- **IAM Role Policy**: `Digital-APILambdaDeploymentRolePolicy`
+- **IAM Role**: `DeploymentPipeline-DeployRole`
+- **IAM Role Policy**: `DeploymentPipeline-DeployRolePolicy`
 
 ### Lambda Functions
 
-Lambda function names follow a consistent pattern based on the project name and function name, ensuring clarity in identifying what each function does and to which project it belongs.
+Lambda function names follow a consistent pattern based on the project name for the main entry lambda of the application. Optionally, if a project has multiple functions, a function purpose can be included.
 
 **Format**:
 
-`[ProjectName]-[FunctionName]`
+`[project-name]-[function-purpose]`
 
-- `[ProjectName]`: The name of the project, representing the overall service or functionality.
-- `[FunctionName]`: The specific name of the Lambda function, based on its purpose or the functionality it provides.
+- `[project-name]`: The name of the project, representing the overall service or functionality, which denotes the main entry function for the project.
+- `[function-purpose]`: For projects requiring separate lambdas, a function purpose can be included in the name.
 
 **Examples**:
 
-- `BaseAPI-GetSystemStatus`
-- `WasteAPI-AddUser`
+- `waste-notifications`
+- `waste-notifications-queue-processor`
 
 ### API Gateway
 
@@ -301,34 +278,29 @@ The API Gateway is responsible for managing and routing API requests to Lambda f
 
 **Format**:
 
-`[ProjectName]Api`
+`[project-name]`
 
-- `[ProjectName]`: The name of the project or service.
+- `[project-name]`: The name of the project or service.
 
 **Examples**:
 
-- `WasteNotificationsApi`
-- `WasteAPI-AddUser`
+- `waste-notifications`
+- `hmo-applications`
 
 **Resource Path Naming**:
 
-`/api/[resource-path]`
+`[resource-path]`
 
-- `/api/`: Base path for all API resources.
 - `[resource-path]`: Path based on the function and the resource being accessed.
 
 **Examples**:
 
-- **API Gateway Name**: `UserManagementApi`
-- **API Gateway Resource Path**: `/api/create-user`, `/api/orders/get-order`
+- **API Gateway Name**: `hmo-applications`
+- **API Gateway Resource Path**: `/records`, `/applications`
 
 **API Gateway Stage Names**:
 
-The stage name is based on the environment (e.g., `dev`, `test`, `prod`).
-
-**Examples**:
-
-- **Stage Names**: `development`, `production`
+The stage name is based on the environment (e.g., `development`, `test`, `production`).
 
 ---
 
@@ -346,7 +318,7 @@ In this section, we focus on how to design and structure API endpoints, independ
 **URL Structure**:
 
 ```
-`/api/[resource-name]/[resource-id]
+`/[resource-name]/[resource-id]
 ```
 
 - `[resource-name]`: The resource being accessed (e.g., `users`, `orders`).
@@ -354,8 +326,8 @@ In this section, we focus on how to design and structure API endpoints, independ
 
 **Examples**:
 
-- **Get all users**: `GET /api/users`
-- **Get a single user**: `GET /api/users/[userId]`
-- **Create a new user**: `POST /api/users`
-- **Update a user**: `PUT /api/users/[userId]`
-- **Delete a user**: `DELETE /api/users/[userId]`
+- **Get all users**: `GET /users`
+- **Get a single user**: `GET /users/[userId]`
+- **Create a new user**: `POST /users`
+- **Update a user**: `PUT /users/[userId]`
+- **Delete a user**: `DELETE /users/[userId]`

@@ -27,23 +27,23 @@ APIs should be designed to provide clear and intuitive access to resources. URLs
 
 **Examples**:
 
-- **Get all users**: `GET /api/users`
-- **Get a specific user**: `GET /api/users/[userId]`
-- **Create a new user**: `POST /api/users`
-- **Update a user**: `PUT /api/users/[userId]`
-- **Delete a user**: `DELETE /api/users/[userId]`
+- **Get all users**: `GET /users`
+- **Get a specific user**: `GET /users/[userId]`
+- **Create a new user**: `POST /users`
+- **Update a user**: `PUT /users/[userId]`
+- **Delete a user**: `DELETE /users/[userId]`
 
 **Query Parameters**:
 
 Use query parameters to filter, sort, or paginate results.
 
 ```
-/api/[resource-name]?sortBy=[field]&page=[number]&limit=[count]
+/[resource-name]?sortBy=[field]&page=[number]&limit=[count]
 ```
 
 **Example**:
 
-- `GET /api/users?sortBy=name&page=2&limit=50`
+- `GET /users?sortBy=name&page=2&limit=50`
 
 ---
 
@@ -60,10 +60,10 @@ APIs should use standard HTTP methods to indicate the action being performed on 
 
 **Example Mapping of HTTP Methods**:
 
-- **GET /api/users**: Retrieve all users.
-- **POST /api/users**: Create a new user.
-- **PUT /api/users/[userId]**: Update an existing user.
-- **DELETE /api/users/[userId]**: Delete a specific user.
+- **GET /users**: Retrieve all users.
+- **POST /users**: Create a new user.
+- **PUT /users/[userId]**: Update an existing user.
+- **DELETE /users/[userId]**: Delete a specific user.
 
 ---
 

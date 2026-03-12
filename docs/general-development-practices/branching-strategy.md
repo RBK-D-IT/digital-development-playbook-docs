@@ -2,7 +2,7 @@
 
 ## Overview
 
-Our development process follows a structured Git branching strategy to ensure smooth collaboration and deployment across environments. This strategy encourages frequent collaboration and continuous integration, with **feature / bugfix branches** for development, and a **main branch** for creating build artifacts and deployments managed through GitHub and CI/CD pipelines.
+Our development process follows a structured Git branching strategy to ensure smooth collaboration and management of code changes. This strategy encourages frequent collaboration and continuous integration, with **feature / bugfix branches** for development, and a **main branch** for creating build artifacts and deployments managed through GitHub and CI/CD pipelines.
 
 ![Branching Strategy Diagram](./img/branching-workflow.png)
 
@@ -12,7 +12,7 @@ Our development process follows a structured Git branching strategy to ensure sm
 
 1. **Main Branch (`main`)**:
 
-    - Represents stable, production-ready code.
+    - Represents stable, deployable code.
     - Code merged into `main` is automatically deployed to the **development environment**.
 
 2. **Feature and Bugfix Branches (`feature/*`, `bugfix/*`)**:
@@ -38,8 +38,8 @@ Our development process follows a structured Git branching strategy to ensure sm
       ```bash
       git switch main
       git pull origin main
-      git switch -C feature/your-feature-name
-      # or for bug fixes: git switch -C bugfix/your-bugfix-name
+      git switch -c feature/your-feature-name
+      # or for bug fixes: git switch -c bugfix/your-bugfix-name
       ```
 
 2. **Work on Your Feature**:

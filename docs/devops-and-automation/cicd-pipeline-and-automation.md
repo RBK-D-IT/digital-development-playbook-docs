@@ -7,8 +7,7 @@ Our **CI/CD pipeline** automates the integration, testing, and deployment of cod
 The main stages in our CI/CD pipeline include:
 
 1. **Continuous Integration (CI)**: Automated testing and validation of code when changes are pushed.
-2. **Automated Deployments**: Deployments triggered by merges into `develop` or `main`.
-3. **On-Demand Deployments**: Manual deployments to all environments when needed.
+2. **Deployments**: Deployments triggered by merges into `main` and through manual promotion of build artifacts.
 
 ---
 
@@ -16,50 +15,48 @@ The main stages in our CI/CD pipeline include:
 
 1. **Continuous Integration (CI)**
 
-When a feature or bug fix is pushed to a branch in GitHub, the CI pipeline is triggered via GitHub Actions.
+When a pull request is raised in GitHub, the CI pipeline is triggered via GitHub Actions.
 
 **Steps in the CI Stage**:
 
-- **Build**: The application is compiled, packaged, or containerised as needed.
+- **Build**: The application is compiled and packaged.
 - **Automated Testing**:
     - **Unit Tests**: Validate individual components or functions.
     - **Integration Tests**: Ensure that services interact correctly.
-    - **End-to-End (E2E) Tests**: Simulate user workflows.
 - **Code Linting**: Check for code quality and adherence to standards.
 
 If any step fails, the pipeline notifies the developer to make changes and re-run the pipeline.
 
 ---
 
-2. **Automated Deployments**
+2. **Deployments**
+
+**Development Environment**
+
+- **Trigger**:
+  - A PR is merged into `main`.
+
+- **Action**:
+  - The pipeline creates a build artifact and deploys it to the **development environment**.
+  - Health checks and E2E tests run to validate the build.
 
 **Test Environment**
 
 - **Trigger**:
-    - A PR is merged into `develop`.
-    - A developer triggers a manual deployment.
+    - Manual promotion of a build artifact.
 - **Action**:
-    - The pipeline automatically deploys to the **test environment**.
-    - AWS CDK assumes an AWS role to deploy in the test account.
-    - Integration and smoke tests run to validate stability.
+    - The pipeline promotes the selected build artifact and deploys it to the **test environment**.
+    - Health checks and E2E tests run to validate the build.
+    - User Acceptance Testing (UAT) validates the end to end business workflow.
 
 **Production Environment**
 
 - **Trigger**:
-    - A PR is merged into `main`.
-    - A developer triggers a manual deployment.
+    - Manual promotion of a test approved build artifact.
 - **Action**:
-    - The pipeline automatically deploys to the **production environment**.
-    - AWS CDK provisions or updates production infrastructure.
-    - Post-deployment monitoring ensures stability.
-
----
-
-3. **On-Demand Deployments**
-
-- Developers can trigger manual deployments to **Development**, **Test** and **Production** environments.
-- This is useful for debugging, feature previews, or infrastructure testing.
-- Manual deployments (like automated deployments) are configured via GitHub Actions.
+  - The pipeline promotes the selected build artifact and deploys it to the **production environment**.
+  - Health checks run to validate the build (rollback occurs on errors).
+  - Smoke tests validate the stability of the application.
 
 ---
 
@@ -67,7 +64,7 @@ If any step fails, the pipeline notifies the developer to make changes and re-ru
 
 1. **Automate All Stages**
 
-- **Automated Testing**: Ensure all commits are validated with unit, integration, and E2E tests.
+- **Automated Testing**: Ensure all deployments are validated with unit, integration, and E2E tests.
 - **GitHub Actions for CI/CD**: Automate the build, test, and deployment processes.
 - **Infrastructure as Code**: Use AWS CDK for consistent infrastructure management.
 
@@ -78,14 +75,13 @@ If any step fails, the pipeline notifies the developer to make changes and re-ru
 
 3. **Environment-Specific Pipelines**
 
-- **Development**: Frequent, on-demand deployments for internal testing.
-- **Test**: Ensures stable releases via UAT before merging to `main`.
+- **Development**: Frequent deployments for internal testing.
+- **Test**: Ensures stable releases via UAT.
 - **Production**: Controlled, automated deployments with monitoring.
 
 4. **Rollback Mechanism**
 
-- Use AWS CloudFormation rollback strategies in case of deployment failures.
-- Ensure previous stable versions can be redeployed quickly if needed.
+- Build artifacts ensure rollback strategies in case of deployment failures.
 
 5. **Monitor and Optimise Pipeline Performance**
 

@@ -11,19 +11,15 @@ To maintain consistency and readability across our codebase, we follow these cod
 1. **Consistency**:
 
     - Write consistent code across the team. Follow established patterns and avoid introducing conflicting styles.
-
-2. **Indentation and Formatting**:
-
-    - Use 2 spaces for indentation (unless the project or language specifies otherwise).
     - Ensure proper use of line breaks and spacing between code blocks for readability.
 
-3. **Naming Conventions**:
+2. **Naming Conventions**:
 
     - Use descriptive variable and function names that clearly describe their purpose.
     - For example, `getUserData()` is more descriptive than `getData()`.
 
 4. **Comments**:
-    - Comment your code where necessary to explain the "why" behind complex logic.
+    - Comment your code only where necessary to explain the "why" behind complex logic.
     - Avoid obvious comments, such as:
       ```javascript
       // Add 1 to counter

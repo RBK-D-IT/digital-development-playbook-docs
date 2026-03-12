@@ -2,16 +2,16 @@
 
 ## Overview
 
-This document outlines the process for deploying code across **Development, Test, and Production environments** using **GitHub Actions**, **AWS CDK**, and **AWS CloudFormation**. Our deployment strategy ensures consistency, automation, and reliability while incorporating validation and rollback mechanisms.
+This document outlines the process for deploying builds across **Development, Test, and Production environments** using **GitHub Actions**, **AWS CDK**, and **AWS CloudFormation**. Our deployment strategy ensures consistency, automation, and reliability while incorporating validation and rollback mechanisms.
 
 ### Deployment Workflow
 
-- **Development (manual trigger)**
-    - Can be deployed on-demand from local machines or triggered via GitHub Actions.
-- **Test (`develop` branch merges)**
-    - Automatically deployed to **Test** upon merge to `develop`.
-- **Production (`main` branch merges)**
-    - Automatically deployed to **Production** upon merge to `main`.
+- **Development (`main` branch merges)**
+    - Automatically deployed to **Development** upon merge to `main`.
+- **Test (manual trigger)**
+    - Manually deployed to **Test** upon promotion of build artifact.
+- **Production (manual trigger)**
+    - Manually deployed to **Production** upon promotion of test approved build artifact.
 
 ---
 
@@ -36,12 +36,12 @@ This automation ensures zero manual intervention for deployments to Test and Pro
 1. **Development Environment**
 
 - **Trigger**:
-    - On-demand deployment via local machine.
-    - On-demand deployment via GitHub Actions (if a developer raises a PR to `develop`).
+    - A PR is merged into `main`.
 - **Steps**:
     - The pipeline builds, tests, and validates the code.
+    - A build artifact is created and uploaded to the development environment.
     - AWS CDK provisions or updates infrastructure.
-    - Smoke tests verify core functionality.
+    - Health checks and E2E tests verify core functionality.
 - **Who is involved?**
     - Developers trigger and monitor deployments.
 
@@ -50,11 +50,12 @@ This automation ensures zero manual intervention for deployments to Test and Pro
 2. **Test Environment**
 
 - **Trigger**:
-    - A merge into `develop` automatically triggers deployment.
+    - Manual promotion of a build artifact.
 - **Steps**:
-    - GitHub Actions builds, tests, and deploys the application.
+    - The pipeline promotes a selected build artifact from the development environment.
     - AWS CDK provisions the test environment.
-    - Integration tests and smoke tests run.
+    - E2E tests and smoke tests run.
+    - UAT carried out to test end to end workflow.
 - **Who is involved?**
     - Developers ensure smooth deployment.
     - Testers validate functionality in the Test environment.
@@ -65,10 +66,11 @@ This automation ensures zero manual intervention for deployments to Test and Pro
 3. **Production Environment**
 
 - **Trigger**:
-    - A merge into `main` automatically triggers deployment.
+    - Manual promotion of a test approved build artifact.
 - **Steps**:
-    - GitHub Actions builds, tests, and deploys the application.
-    - AWS CDK provisions production infrastructure.
+    - The pipeline promotes a selected test approved build artifact from the test environment.
+    - AWS CDK provisions the production environment.
+    - Health check and tests run.
     - Smoke tests confirm a successful deployment.
     - Monitoring tools like AWS CloudWatch track performance.
 - **Who is involved?**
@@ -79,19 +81,13 @@ This automation ensures zero manual intervention for deployments to Test and Pro
 
 ## Rollback Strategy
 
-### Automatic Rollback with AWS CloudFormation
+### Automatic Rollback with Build Artifacts
 
-- If a CloudFormation deployment fails, AWS automatically rolls back to the previous stable state.
-
-### Application Rollback
-
-- If an issue is detected in production:
-    - The pipeline can redeploy the last stable version.
-    - Developers can manually rollback to a previous Git commit.
+- If a production deployment fails, the GitHub Actions workflow immediately rolls back and deploys the previous production build.
 
 ### Manual Intervention
 
-- In severe incidents, developers can initiate a rollback via AWS CDK or GitHub Actions.
+- In severe incidents, developers can initiate a manual rollback via GitHub Actions.
 
 ---
 
@@ -119,7 +115,7 @@ This automation ensures zero manual intervention for deployments to Test and Pro
 
 For every deployment, the following validation and monitoring steps are performed:
 
-- **Smoke Tests**: Automatically run smoke tests after each deployment to validate that critical functionality is working.
+- **Automated Tests**: Automatically run tests after each deployment to validate that critical functionality is working.
 - **Monitoring Tools**: Use AWS CloudWatch or similar tools to monitor the health and performance of the application post-deployment.
 - **Alerts**: Set up automatic alerts for any failures or performance degradations in the production environment.
 

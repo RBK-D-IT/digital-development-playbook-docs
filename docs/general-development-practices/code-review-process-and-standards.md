@@ -10,7 +10,7 @@ Code reviews are a critical part of our development workflow, ensuring code qual
 
 1. **Submit a Pull Request**:
 
-    - After completing a feature or bug fix, submit a pull request (PR) targeting the `develop` branch.
+    - After completing a feature or bug fix, submit a pull request (PR) targeting the `main` branch.
     - Include the following in the PR description:
         - A clear summary of the changes made.
         - Issue ticket reference (if applicable).
@@ -35,14 +35,13 @@ Code reviews are a critical part of our development workflow, ensuring code qual
 
     - Once the reviewer is satisfied, they will approve the PR.
     - Ensure all CI checks (tests, linters, etc.) have passed before merging.
-    - Merge the PR into `develop`, and delete the feature branch to keep the repository clean.
+    - Merge the PR into `main`, and delete the feature branch to keep the repository clean.
 
 5. **Continuous Integration (CI) Checks**:
     - Before merging, the PR must pass all automated CI checks, including:
         - Unit tests
         - Integration tests
-        - Linting (e.g., ESLint, Pylint)
-        - Any other configured tests (e.g., end-to-end tests)
+        - Any other configured tests / styling standards
 
 ---
 
@@ -98,6 +97,5 @@ Code reviews are a critical part of our development workflow, ensuring code qual
 
 ## Merge Strategy
 
-- We use **squash and merge** for pull requests to keep the `develop` branch history clean and avoid clutter with numerous small commits.
+- We use **squash and merge** for pull requests to keep the `main` branch history clean and avoid clutter with numerous small commits.
 - Ensure the final commit message after squashing follows the [Conventional Commits](../general-development-practices/coding-standards.md#commit-message-standards-conventional-commits) format.
-- For promoting between `develop` and `main`, a merge commit is used.

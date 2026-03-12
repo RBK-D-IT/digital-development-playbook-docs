@@ -4,8 +4,6 @@
 
 The Software Development Lifecycle (SDLC) describes the structured process used to design, develop, test, and deploy software. It provides a consistent framework for delivering reliable and maintainable software while ensuring collaboration between developers, testers, and stakeholders.  
 The lifecycle begins with defining requirements and continues through development, testing, deployment, and ongoing monitoring. The process is iterative, allowing new improvements and fixes to be delivered continuously.
-
-![SDLC Diagram](./img/software-development-lifecycle.png)
 ---
 
 ## SDLC Stages

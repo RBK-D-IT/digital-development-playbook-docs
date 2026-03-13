@@ -10,6 +10,7 @@ The main stages in our CI/CD pipeline include:
 2. **Deployments**: Deployments triggered by merges into `main` and through manual promotion of build artifacts.
 
 ![CI/CD Pipeline](./img/cicd-pipeline.png)
+
 ---
 
 ## Key Stages of the CI/CD Pipeline

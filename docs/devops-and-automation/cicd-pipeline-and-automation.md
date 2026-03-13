@@ -7,7 +7,7 @@ Our **CI/CD pipeline** automates the integration, testing, and deployment of cod
 The main stages in our CI/CD pipeline include:
 
 1. **Continuous Integration (CI)**: Automated testing and validation of code when changes are pushed.
-2. **Deployments**: Deployments triggered by merges into `main` and through manual promotion of build artifacts.
+2. **Continuous Delivery (CD)**: Deployments triggered by merges into `main` and through manual promotion of build artifacts.
 
 ![CI/CD Pipeline](./img/cicd-pipeline.png)
 
@@ -31,7 +31,7 @@ If any step fails, the pipeline notifies the developer to make changes and re-ru
 
 ---
 
-2. **Deployments**
+2. **Continuous Delivery (CD)**
 
 **Development Environment**
 

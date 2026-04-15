@@ -17,7 +17,7 @@ The main stages in our CI/CD pipeline include:
 
 1. **Continuous Integration (CI)**
 
-When a feature branch is ready to be merged and a pull request is raised in GitHub, the CI pipeline is triggered via GitHub Actions.
+When changes on a feature branch are ready to be merged into `main` and a pull request is raised in GitHub, the CI pipeline is triggered via GitHub Actions.
 
 **Steps in the CI Stage**:
 

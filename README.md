@@ -53,3 +53,9 @@ This is configured via:
 
 - CloudFront alternate domain name
 - Route53 alias record pointing to the distribution
+
+---
+
+## Website Updates
+
+When changes are applied to the website pages in the `docs` folder, a GitHub Actions workflow automatically runs which will sync these changes to the S3 bucket that stores the website files. This will update the website with the relevant changes.

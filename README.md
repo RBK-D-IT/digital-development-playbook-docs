@@ -11,7 +11,7 @@ This repository hosts a static documentation site (built with [Docsify](https://
 The site is deployed as a static website using:
 
 - Amazon S3 (storage)
-- Amazon CloudFront (distribution, SSL, WAF)
+- Amazon CloudFront (distribution, SSL)
 - AWS Route53 (custom domain)
 
 ---
@@ -40,6 +40,20 @@ cdk deploy digital-api-portal \
 
 Where:
 - `<CERTIFICATE_ARN>` is the ARN of the ACM certificate (must be in `us-east-1`)
+
+---
+
+### Deployment Details
+
+There are several resources which get deployed when running the CDK command.
+
+#### CloudFront Distribution
+
+For website hosting, AWS CloudFront is used. This creates a distribution within the AWS account which hosts the website files.
+
+#### S3 Bucket (Website Files)
+
+The static HTML / CSS files used to construct the website are stored in an S3 bucket (`digital-development-playbook-docs-site`) - this bucket is then attached as an origin to CloudFront.
 
 ---
 

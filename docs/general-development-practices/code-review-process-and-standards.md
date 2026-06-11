@@ -24,7 +24,7 @@ Code reviews are a critical part of our development workflow, ensuring code qual
         - **Test Coverage**: Confirm that the new code has appropriate unit tests, and ensure that existing tests pass.
         - **Functionality**: Verify that the feature works as expected by testing locally when applicable.
         - **Security**: Check for potential security vulnerabilities, especially when dealing with sensitive data (e.g., authentication, authorisation).
-        - **Performance**: Look for possible performance optimizations, especially for high-impact areas like database queries or API calls.
+        - **Performance**: Look for possible performance optimisations, especially for high-impact areas like database queries or API calls.
 
 3. **Address Feedback**:
 
@@ -57,7 +57,7 @@ Code reviews are a critical part of our development workflow, ensuring code qual
 
 2. **Focus on the Code, Not the Person**:
 
-    - Review the code objectively. Avoid criticizing the author personally.
+    - Review the code objectively. Avoid criticising the author personally.
 
 3. **Be Timely**:
 

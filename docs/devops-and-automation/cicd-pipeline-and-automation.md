@@ -25,7 +25,6 @@ When changes on a feature branch are ready to be merged into `main` and a pull r
 - **Automated Testing**:
     - **Unit Tests**: Validate individual components or functions.
     - **Integration Tests**: Ensure that services interact correctly.
-- **Code Linting**: Check for code quality and adherence to standards.
 
 If any step fails, the pipeline notifies the developer to make changes and re-run the pipeline.
 

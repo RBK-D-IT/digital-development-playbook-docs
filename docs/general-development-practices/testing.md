@@ -29,23 +29,7 @@ Testing is essential to ensure the quality, stability, and maintainability of ou
 
 ## Testing Guidelines
 
-1. **Test-Driven Development (TDD)**
-
-- Where appropriate, adopt **Test-Driven Development (TDD)**:
-    1. Write a failing test that defines the behavior you want.
-    2. Write the minimal amount of code necessary to pass the test.
-    3. Refactor the code while ensuring all tests still pass.
-- TDD helps drive code design, ensures tests are written for new features, and helps catch issues early in the development process.
-
-2. **Test Coverage**
-
-- Aim for at least 80% test coverage on critical code paths.
-- Unit tests should cover edge cases, error handling, and boundary conditions.
-- Integration tests should ensure correct data flow between components and services.
-- End-to-End tests should cover key user flows and high-priority features.
-- Maintain balance: while high test coverage is important, ensure that tests are meaningful and not just written for the sake of reaching a coverage number.
-
-3. **Write Readable and Maintainable Tests**
+1. **Write Readable and Maintainable Tests**
 
 - Tests should be easy to read and understand, with clear, descriptive names.
 - Follow the Arrange-Act-Assert (AAA) pattern:
@@ -76,20 +60,30 @@ Testing is essential to ensure the quality, stability, and maintainability of ou
 - Write small, focused tests that each cover a specific behaviour or scenario.
 - Avoid complex logic within tests. Tests should be simple and test only one thing at a time.
 
-4. **Use Mocks and Stubs Where Necessary**
+2. **Test Coverage**
+
+- Aim for at least 80% test coverage on critical code paths.
+- Unit tests should cover edge cases, error handling, and boundary conditions.
+- Integration tests should ensure correct data flow between components and services.
+- End-to-End tests should cover key user flows and high-priority features.
+- Maintain balance: while high test coverage is important, ensure that tests are meaningful and not just written for the sake of reaching a coverage number.
+
+
+
+3. **Use Mocks and Stubs Where Necessary**
 
 - Mocks and stubs are useful for isolating the system under test, especially when interacting with external services (e.g., databases, APIs).
 - For unit tests, mock or stub external dependencies to ensure that tests remain focused on the function or component being tested.
-- Integration tests should minimize the use of mocks, focusing instead on testing the actual interaction between components.
+- Integration tests should minimise the use of mocks, focusing instead on testing the actual interaction between components.
 - Avoid over-mocking, as it can make tests brittle and harder to understand.
 
-5. **Automate Testing**
+4. **Automate Testing**
 
 - All tests should run automatically as part of our Continuous Integration (CI) pipeline.
 - Unit tests, integration tests, and end-to-end tests should be part of the CI process to ensure that code is fully tested before it reaches production.
 - No code should be merged unless all tests pass in CI.
 
-6. **Write Tests for Bugs and Edge Cases**
+5. **Write Tests for Bugs and Edge Cases**
 
 - When a bug is discovered, write a test case that reproduces the issue before fixing it. This ensures that the bug is covered by tests and helps prevent regressions.
 - Cover edge cases in your tests, such as null inputs, invalid data, and boundary conditions, to make your code more robust.
@@ -105,7 +99,7 @@ Testing is essential to ensure the quality, stability, and maintainability of ou
 
 ## Test Structure and Organisation
 
-1. **Organize tests by functionality**:
+1. **Organise tests by functionality**:
 
     - Place tests in a folder structure that mirrors the application's modules or components.
     - Group tests by type (unit, integration, end-to-end) or by the feature or component they cover.
@@ -113,7 +107,7 @@ Testing is essential to ensure the quality, stability, and maintainability of ou
 2. **Test Naming Conventions**:
 
     - Test files should be named descriptively, using a format that clearly indicates what is being tested.
-    - Inside test files, use descriptive names for test cases to communicate the behavior or scenario being tested.
+    - Inside test files, use descriptive names for test cases to communicate the behaviour or scenario being tested.
 
    Example:
 

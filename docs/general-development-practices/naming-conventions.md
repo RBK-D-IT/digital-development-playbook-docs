@@ -318,7 +318,7 @@ In this section, we focus on how to design and structure API endpoints, independ
 **URL Structure**:
 
 ```
-`/[resource-name]/[resource-id]
+/[resource-name]/[resource-id]
 ```
 
 - `[resource-name]`: The resource being accessed (e.g., `users`, `orders`).

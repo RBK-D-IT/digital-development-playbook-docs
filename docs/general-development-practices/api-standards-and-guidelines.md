@@ -177,4 +177,4 @@ Proper logging and monitoring of APIs are crucial for tracking performance, diag
 
 - Log all API requests and responses (excluding sensitive information like passwords).
 - Monitor error rates, latency, and response times to identify bottlenecks or issues.
-- Set up alerts for abnormal API behaviors (e.g., increased error rates or response time).
+- Set up alerts for abnormal API behaviours (e.g., increased error rates or response time).

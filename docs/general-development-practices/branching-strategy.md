@@ -45,7 +45,7 @@ Our development process follows a structured Git branching strategy to ensure sm
 2. **Work on Your Feature**:
 
     - Make meaningful commits to the feature branch, following the [Conventional Commits](../general-development-practices/coding-standards.md#commit-message-standards-conventional-commits) specification for commit messages.
-    - Commit messages should include a type (e.g., `feat`, `fix`) and an optional short description of the change.
+    - Commit messages should include a type (e.g., `feat`, `fix`) and a short description of the change.
     - Always keep your branch up to date with any potential changes to `main` through rebasing:
 
       ```bash

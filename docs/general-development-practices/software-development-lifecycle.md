@@ -26,7 +26,7 @@ During this stage, the development team determines how the requirements will be 
 - **Key Activities**:
     - Reviewing existing system architecture
     - Designing new components or services
-    - Assessing and risks or technical challenges
+    - Assessing any risks or technical challenges
 
 The goal is to establish a clear technical approach before development begins.
 
@@ -65,7 +65,7 @@ Testing ensures that the implemented functionality behaves as expected and does 
     - User Acceptance Testing (UAT)
     - Verifying requirements have been met
 
-Issues identified during testing may require additional development before the change can proceed to release.
+Issues identified during testing may require additional development before the change can proceed to production.
 
 6. **Release & Deployment**
 
